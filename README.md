@@ -2,6 +2,8 @@
 
 Tableau de bord **Power BI** sur la production de souches bactériennes de BioGrow Solutions.
 
+> **Projet d'étude sur données fictives.** BioGrow Solutions est une entreprise imaginaire et tous les chiffres sont simulés ; seule la démarche d'analyse est réelle.
+
 ## 1. Le problème
 
 Sur la période étudiée, **16 % des lots produits sont invendables** : leur rendement est inférieur au seuil de qualité de leur souche. Cela représente **317 k€ de coûts de production perdus**, sur 1,99 M€ au total.
@@ -13,7 +15,7 @@ Questions métier :
 
 ## 2. Les données
 
-**Source** : 5 fichiers CSV.
+**Source** : 5 fichiers CSV de données fictives, générées pour l'exercice.
 
 | Fichier | Contenu | Taille |
 |---|---|---|
