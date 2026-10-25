@@ -5,7 +5,7 @@
     "x": 104,
     "y": 208,
     "z": 2000,
-    "height": 240.0,
+    "height": 240,
     "width": 1160,
     "tabOrder": 2000
   },
@@ -28,8 +28,8 @@
               },
               "queryRef": "BioGrow_Dim_Calendrier.Mois_Abrege",
               "nativeQueryRef": "Mois_Abrege",
-              "displayName": "Mois",
-              "active": true
+              "active": true,
+              "displayName": "Mois"
             }
           ]
         },
@@ -72,8 +72,6 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
-    "objects": {},
     "visualContainerObjects": {
       "background": [
         {
@@ -310,6 +308,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

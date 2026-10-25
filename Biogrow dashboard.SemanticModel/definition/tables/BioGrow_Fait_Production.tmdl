@@ -90,7 +90,7 @@ table BioGrow_Fait_Production
 
 		annotation SummarizationSetBy = User
 
-	column Categorie_Qualite = ```
+	column Categorie_Qualite =
 			
 			VAR Seuil = RELATED('BioGrow_Dim_Souches'[Seuil_Qualite])
 			VAR Rendement = 'BioGrow_Fait_Production'[Rendement_UFC_ml]
@@ -116,7 +116,6 @@ table BioGrow_Fait_Production
 			    -- 3. VENDABLE : Rendement OK mais conditions de culture stressantes (pH ou température hors zone idéale)
 			    "Vendable"
 			)
-			```
 		lineageTag: ecd6b062-fcd7-4f39-bc24-666dac4e063e
 		summarizeBy: none
 

@@ -66,10 +66,10 @@ table BioGrow_Dim_Calendrier
 		annotation SummarizationSetBy = Automatic
 
 	column Mois_Tri = YEAR('BioGrow_Dim_Calendrier'[Date]) * 100 + MONTH('BioGrow_Dim_Calendrier'[Date])
+		isHidden
 		formatString: 0
 		lineageTag: 05665191-7d38-4432-a3ce-05ebac9e3709
 		summarizeBy: none
-		isHidden
 
 		annotation SummarizationSetBy = Automatic
 

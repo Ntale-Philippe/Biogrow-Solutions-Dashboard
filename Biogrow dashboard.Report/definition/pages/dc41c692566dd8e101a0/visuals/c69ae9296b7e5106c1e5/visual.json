@@ -3,9 +3,9 @@
   "name": "c69ae9296b7e5106c1e5",
   "position": {
     "x": 104,
-    "y": 464.0,
+    "y": 464,
     "z": 2001,
-    "height": 240.0,
+    "height": 240,
     "width": 1160,
     "tabOrder": 2001
   },
@@ -28,8 +28,8 @@
               },
               "queryRef": "BioGrow_Dim_Calendrier.Mois_Abrege",
               "nativeQueryRef": "Mois_Abrege",
-              "displayName": "Mois",
-              "active": true
+              "active": true,
+              "displayName": "Mois"
             }
           ]
         },
@@ -87,8 +87,6 @@
         "isDefaultSort": true
       }
     },
-    "drillFilterOtherVisuals": true,
-    "objects": {},
     "visualContainerObjects": {
       "background": [
         {
@@ -325,6 +323,7 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }
