@@ -75,28 +75,58 @@
           "type": "Image"
         },
         {
-          "name": "icone_efficacit__commerciale5244585916597985.png",
-          "path": "icone_efficacit__commerciale5244585916597985.png",
+          "name": "nav_home.svg",
+          "path": "nav_home.svg",
           "type": "Image"
         },
         {
-          "name": "icone_insigths26288822812355095.png",
-          "path": "icone_insigths26288822812355095.png",
+          "name": "nav_home_actif.svg",
+          "path": "nav_home_actif.svg",
           "type": "Image"
         },
         {
-          "name": "icone_introduction3888472764482732.png",
-          "path": "icone_introduction3888472764482732.png",
+          "name": "nav_trend.svg",
+          "path": "nav_trend.svg",
           "type": "Image"
         },
         {
-          "name": "icone_qualit_17059188195094765.png",
-          "path": "icone_qualit_17059188195094765.png",
+          "name": "nav_trend_actif.svg",
+          "path": "nav_trend_actif.svg",
           "type": "Image"
         },
         {
-          "name": "icone_rendement4327517302781315.png",
-          "path": "icone_rendement4327517302781315.png",
+          "name": "nav_flask.svg",
+          "path": "nav_flask.svg",
+          "type": "Image"
+        },
+        {
+          "name": "nav_flask_actif.svg",
+          "path": "nav_flask_actif.svg",
+          "type": "Image"
+        },
+        {
+          "name": "nav_wallet.svg",
+          "path": "nav_wallet.svg",
+          "type": "Image"
+        },
+        {
+          "name": "nav_wallet_actif.svg",
+          "path": "nav_wallet_actif.svg",
+          "type": "Image"
+        },
+        {
+          "name": "nav_bulb.svg",
+          "path": "nav_bulb.svg",
+          "type": "Image"
+        },
+        {
+          "name": "nav_bulb_actif.svg",
+          "path": "nav_bulb_actif.svg",
+          "type": "Image"
+        },
+        {
+          "name": "logo_biogrow_embleme.png",
+          "path": "logo_biogrow_embleme.png",
           "type": "Image"
         }
       ]
