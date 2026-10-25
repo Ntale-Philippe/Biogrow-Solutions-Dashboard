@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Miser sur Pediococcus A",
+                    "value": "Accompagner chaque technicien",
                     "textStyle": {
                       "fontSize": "13pt",
                       "color": "#2F3E46",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "La souche Pediococcus A est la meilleure en termes de performance.",
+                    "value": "Le niveau d'expertise n'explique pas la qualité : les techniciens juniors ont les meilleurs taux, et deux seniors obtiennent des résultats différents.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",
@@ -43,7 +43,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il faudrait augmenter la part de cette souche dans le catalogue de l'entreprise et réduire la production des souches instables comme Bacillus S.",
+                    "value": "L'accompagnement doit partir des résultats individuels de chacun plutôt que de son niveau.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",

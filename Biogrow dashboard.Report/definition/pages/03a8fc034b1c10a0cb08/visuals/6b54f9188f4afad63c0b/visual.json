@@ -23,11 +23,11 @@
                       "Entity": "Mesures"
                     }
                   },
-                  "Property": "Constat expertise"
+                  "Property": "Constat souche faible"
                 }
               },
-              "queryRef": "Mesures.Constat expertise",
-              "nativeQueryRef": "Constat expertise",
+              "queryRef": "Mesures.Constat souche faible",
+              "nativeQueryRef": "Constat souche faible",
               "displayName": "Constat"
             }
           ]

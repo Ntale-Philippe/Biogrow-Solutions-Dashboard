@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Suivre la qualité en temps réel",
+                    "value": "Auditer la Station Nairobi",
                     "textStyle": {
                       "fontSize": "13pt",
                       "color": "#2F3E46",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Les lots invendables sont découverts trop tard.",
+                    "value": "La Station Nairobi a le rendement le plus faible et la plus forte proportion de lots invendables, alors que chaque lot y coûte autant qu'ailleurs.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",
@@ -43,7 +43,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il faudrait déployer ce tableau de bord sur des tablettes, directement dans les laboratoires, pour suivre la qualité des lots en temps réel.",
+                    "value": "Le problème ne vient donc pas du budget : il faut auditer le procédé et l'équipement du site.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",

@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Revoir le procédé Bacillus S",
+                    "value": "Développer Pediococcus A",
                     "textStyle": {
                       "fontSize": "13pt",
                       "color": "#2F3E46",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "La souche Bacillus S est la moins performante sur tous les sites.",
+                    "value": "Pediococcus A dépasse sa cible de rendement et ne produit aucun lot invendable.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",
@@ -43,7 +43,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il faudrait revoir ou ajuster le processus de production, inspecter le matériel et les méthodes des techniciens.",
+                    "value": "Il faudrait lui donner une plus grande place dans le catalogue de l'entreprise.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",

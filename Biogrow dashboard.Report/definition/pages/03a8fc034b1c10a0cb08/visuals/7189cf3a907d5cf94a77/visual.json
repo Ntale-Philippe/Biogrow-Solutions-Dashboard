@@ -23,11 +23,11 @@
                       "Entity": "Mesures"
                     }
                   },
-                  "Property": "Constat souche faible"
+                  "Property": "Constat souche forte"
                 }
               },
-              "queryRef": "Mesures.Constat souche faible",
-              "nativeQueryRef": "Constat souche faible",
+              "queryRef": "Mesures.Constat souche forte",
+              "nativeQueryRef": "Constat souche forte",
               "displayName": "Constat"
             }
           ]

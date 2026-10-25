@@ -149,6 +149,32 @@ table Mesures
 		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b11
 		displayFolder: Constats
 
+	measure 'Constat techniciens' =
+
+			VAR t = FILTER(
+			    ADDCOLUMNS(VALUES('BioGrow_Dim_Techniciens'[Nom_Tech]), "@taux", [Taux de lots invendables]),
+			    NOT ISBLANK([@taux])
+			)
+			RETURN
+			    IF(ISEMPTY(t), "Aucune donnée",
+			        "Constat actuel : " & FORMAT(MINX(t, [@taux]), "0.0 %") & " à " & FORMAT(MAXX(t, [@taux]), "0.0 %")
+			        & " d'invendables selon le technicien")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b12
+		displayFolder: Constats
+
+	measure 'Constat coût par lot' =
+
+			VAR t = FILTER(
+			    ADDCOLUMNS(VALUES('BioGrow_Dim_Sites'[Nom_Site]), "@cout", [Coût moyen par lot]),
+			    NOT ISBLANK([@cout])
+			)
+			RETURN
+			    IF(ISEMPTY(t), "Aucune donnée",
+			        "Constat actuel : " & FORMAT(MINX(t, [@cout]), "#,0") & " € à " & FORMAT(MAXX(t, [@cout]), "#,0")
+			        & " € par lot selon le site")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b13
+		displayFolder: Constats
+
 	column Column
 		isHidden
 		formatString: 0

@@ -23,11 +23,11 @@
                       "Entity": "Mesures"
                     }
                   },
-                  "Property": "Constat site rendement"
+                  "Property": "Constat invendables"
                 }
               },
-              "queryRef": "Mesures.Constat site rendement",
-              "nativeQueryRef": "Constat site rendement",
+              "queryRef": "Mesures.Constat invendables",
+              "nativeQueryRef": "Constat invendables",
               "displayName": "Constat"
             }
           ]

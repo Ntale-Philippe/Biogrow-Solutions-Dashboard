@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Contrôler le laboratoire de Kinshasa",
+                    "value": "Comparer les coûts par lot",
                     "textStyle": {
                       "fontSize": "13pt",
                       "color": "#2F3E46",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Le laboratoire de Kinshasa présente le coût de production le plus élevé et le plus grand nombre de lots invendables, avec des erreurs constantes toute l'année.",
+                    "value": "Le Labo Kinshasa a le coût total le plus élevé parce qu'il produit près de la moitié des lots, mais chaque lot y coûte autant qu'ailleurs.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",
@@ -43,7 +43,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il faut vérifier le matériel, les produits et le travail des techniciens pendant la production pour repérer les erreurs au plus vite.",
+                    "value": "Pour répartir les budgets, il faut comparer les coûts par lot, pas les totaux.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",

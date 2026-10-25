@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Soutenir la station Nairobi",
+                    "value": "Suivre la qualité en temps réel",
                     "textStyle": {
                       "fontSize": "13pt",
                       "color": "#2F3E46",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "La station Nairobi a la plus faible moyenne de rendement par lot, peut-être parce que son coût de production est faible. Néanmoins, la performance de ses bactéries avoisine celle des autres sites.",
+                    "value": "Des lots invendables apparaissent chaque mois, sans exception, et ne sont découverts qu'après coup.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",
@@ -43,7 +43,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il faudrait allouer plus de fonds à ce site pour valoriser ses performances.",
+                    "value": "Déployer ce tableau de bord sur des tablettes, au laboratoire, permettrait de repérer plus tôt les lots non conformes.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",

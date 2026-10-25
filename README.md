@@ -26,12 +26,6 @@ Le projet est enregistré au format PBIP, ce qui permet de le versionner avec Gi
 
 Le rapport compte cinq pages : un accueil, une page sur le rendement, une sur la qualité, une sur l'efficacité commerciale et une page de recommandations. Quatre filtres (souche, technicien, site et niveau d'expertise) restent actifs d'une page à l'autre.
 
-<!-- Captures à ajouter dans docs/ :
-![Page Rendement](docs/rendement.png)
-![Page Qualité](docs/qualite.png)
-![Page Efficacité commerciale](docs/commercial.png)
-![Page Recommandations](docs/recommandations.png)
--->
 
 Le constat principal est qu'une seule souche concentre l'essentiel des pertes. Bacillus S produit 59 % de lots invendables et représente à elle seule 72 % de la perte, soit 230 000 €. Toutes les autres souches réunies n'en ont que 5 %. Son rendement moyen, 98 UFC/ml, est même inférieur à son propre seuil de qualité, fixé à 100.
 

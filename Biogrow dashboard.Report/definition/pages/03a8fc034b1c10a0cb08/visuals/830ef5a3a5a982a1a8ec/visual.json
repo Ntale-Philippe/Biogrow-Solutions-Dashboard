@@ -23,11 +23,11 @@
                       "Entity": "Mesures"
                     }
                   },
-                  "Property": "Constat souche forte"
+                  "Property": "Constat techniciens"
                 }
               },
-              "queryRef": "Mesures.Constat souche forte",
-              "nativeQueryRef": "Constat souche forte",
+              "queryRef": "Mesures.Constat techniciens",
+              "nativeQueryRef": "Constat techniciens",
               "displayName": "Constat"
             }
           ]

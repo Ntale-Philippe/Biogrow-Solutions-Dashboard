@@ -23,11 +23,11 @@
                       "Entity": "Mesures"
                     }
                   },
-                  "Property": "Constat site coûts"
+                  "Property": "Constat coût par lot"
                 }
               },
-              "queryRef": "Mesures.Constat site coûts",
-              "nativeQueryRef": "Constat site coûts",
+              "queryRef": "Mesures.Constat coût par lot",
+              "nativeQueryRef": "Constat coût par lot",
               "displayName": "Constat"
             }
           ]

@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Former les techniciens juniors",
+                    "value": "Traiter Bacillus S en priorité",
                     "textStyle": {
                       "fontSize": "13pt",
                       "color": "#2F3E46",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Le coût de production varie selon le niveau d'expertise. L'employé junior consomme beaucoup d'argent pour atteindre le rendement souhaité.",
+                    "value": "Bacillus S concentre la majorité des lots invendables et l'essentiel de la perte financière. Son rendement moyen reste même sous son propre seuil de qualité.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",
@@ -43,7 +43,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Un renforcement de ses capacités est nécessaire pour élever son niveau.",
+                    "value": "Il faut revoir son procédé, vérifier que son seuil et sa cible sont réalistes, et éviter les cultures sous 36 °C.",
                     "textStyle": {
                       "fontSize": "10.5pt",
                       "color": "#2F3E46",
