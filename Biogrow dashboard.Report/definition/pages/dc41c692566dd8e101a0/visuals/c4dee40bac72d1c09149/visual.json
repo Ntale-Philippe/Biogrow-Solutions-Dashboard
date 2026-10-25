@@ -17,23 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "BioGrow_Dim_Souches"
-                        }
-                      },
-                      "Property": "Temp_Optimale"
+                    "SourceRef": {
+                      "Entity": "Mesures"
                     }
                   },
-                  "Function": 3
+                  "Property": "Écart à la température optimale"
                 }
               },
-              "queryRef": "Min(BioGrow_Dim_Souches.Temp_Optimale)",
-              "nativeQueryRef": "Temp_Optimale",
-              "displayName": "Température optimale"
+              "queryRef": "Mesures.Écart à la température optimale",
+              "nativeQueryRef": "Écart à la température optimale",
+              "displayName": "Écart à la température optimale"
             }
           ]
         }
@@ -282,7 +277,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Température optimale'"
+                  "Value": "'Écart à la température optimale'"
                 }
               }
             },

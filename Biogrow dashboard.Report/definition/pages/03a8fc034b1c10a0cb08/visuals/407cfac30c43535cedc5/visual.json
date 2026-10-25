@@ -33,7 +33,7 @@
                   {
                     "value": "La station Nairobi a la plus faible moyenne de rendement par lot, peut-être parce que son coût de production est faible. Néanmoins, la performance de ses bactéries avoisine celle des autres sites.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -45,7 +45,7 @@
                   {
                     "value": "Il faudrait allouer plus de fonds à ce site pour valoriser ses performances.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -220,7 +220,7 @@
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "52D"
                 }
               }
             },

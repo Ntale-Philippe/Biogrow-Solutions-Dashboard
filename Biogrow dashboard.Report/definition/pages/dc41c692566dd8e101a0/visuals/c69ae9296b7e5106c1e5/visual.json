@@ -30,21 +30,6 @@
               "nativeQueryRef": "Mois_Abrege",
               "displayName": "Mois",
               "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "BioGrow_Dim_Souches"
-                    }
-                  },
-                  "Property": "Temp_Optimale"
-                }
-              },
-              "queryRef": "BioGrow_Dim_Souches.Temp_Optimale",
-              "nativeQueryRef": "Temp_Optimale",
-              "active": false
             }
           ]
         },
@@ -64,6 +49,21 @@
               "queryRef": "Mesures.temperature moyenne",
               "nativeQueryRef": "temperature moyenne",
               "displayName": "Température moyenne (°C)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Température optimale"
+                }
+              },
+              "queryRef": "Mesures.Température optimale",
+              "nativeQueryRef": "Température optimale",
+              "displayName": "Température optimale (°C)"
             }
           ]
         }
@@ -279,7 +279,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Température moyenne de culture par mois (°C)'"
+                  "Value": "'Température moyenne vs température optimale des souches (°C)'"
                 }
               }
             },

@@ -47,7 +47,7 @@
               },
               "queryRef": "Mesures.Performance par souche en %",
               "nativeQueryRef": "Performance par souche en %",
-              "displayName": "Performance vs cible (%)"
+              "displayName": "Atteinte de la cible (%)"
             }
           ]
         }
@@ -110,6 +110,37 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Mesures"
+                        }
+                      },
+                      "Property": "Couleur performance"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
           }
         }
       ]
@@ -304,7 +335,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Performance par souche (% du rendement cible)'"
+                  "Value": "'Atteinte de la cible de rendement par souche (vert : cible atteinte, corail : en dessous)'"
                 }
               }
             },

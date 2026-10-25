@@ -33,7 +33,7 @@
                   {
                     "value": "Le coût de production varie selon le niveau d'expertise. L'employé junior consomme beaucoup d'argent pour atteindre le rendement souhaité.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -45,7 +45,7 @@
                   {
                     "value": "Un renforcement de ses capacités est nécessaire pour élever son niveau.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -220,7 +220,7 @@
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "52D"
                 }
               }
             },

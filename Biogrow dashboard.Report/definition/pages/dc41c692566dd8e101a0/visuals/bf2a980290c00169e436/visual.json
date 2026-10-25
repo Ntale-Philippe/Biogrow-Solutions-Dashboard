@@ -28,7 +28,7 @@
               },
               "queryRef": "Mesures.Performance par souche en %",
               "nativeQueryRef": "Performance par souche en %",
-              "displayName": "Performance vs cible (%)"
+              "displayName": "Atteinte de la cible (%)"
             }
           ]
         }
@@ -277,7 +277,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Performance vs cible (%)'"
+                  "Value": "'Atteinte de la cible (%)'"
                 }
               }
             },

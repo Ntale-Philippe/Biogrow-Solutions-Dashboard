@@ -33,7 +33,7 @@
                   {
                     "value": "La souche Bacillus S est la moins performante sur tous les sites.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -45,7 +45,7 @@
                   {
                     "value": "Il faudrait revoir ou ajuster le processus de production, inspecter le matériel et les méthodes des techniciens.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -220,7 +220,7 @@
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "52D"
                 }
               }
             },

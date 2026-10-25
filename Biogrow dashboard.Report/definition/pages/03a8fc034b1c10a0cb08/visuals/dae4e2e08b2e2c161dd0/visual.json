@@ -31,9 +31,9 @@
               {
                 "textRuns": [
                   {
-                    "value": "Le laboratoire de Kinshasa présente le coût de production le plus élevé ainsi que le plus grand nombre de lots invendables. Les erreurs sont restées constantes tout au long de l'année.",
+                    "value": "Le laboratoire de Kinshasa présente le coût de production le plus élevé et le plus grand nombre de lots invendables, avec des erreurs constantes toute l'année.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -43,9 +43,9 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il vaudrait mieux vérifier la qualité du matériel, des produits et du travail des techniciens pendant la production pour identifier au plus vite les erreurs.",
+                    "value": "Il faut vérifier le matériel, les produits et le travail des techniciens pendant la production pour repérer les erreurs au plus vite.",
                     "textStyle": {
-                      "fontSize": "11pt",
+                      "fontSize": "10.5pt",
                       "color": "#2F3E46",
                       "fontFamily": "Segoe UI"
                     }
@@ -220,7 +220,7 @@
             "bottom": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "52D"
                 }
               }
             },
