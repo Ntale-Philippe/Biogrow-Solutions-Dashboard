@@ -3,6 +3,7 @@ table BioGrow_Dim_Souches
 
 	column ID_Souche
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 53fc59ba-578f-4a4c-bb26-4786dd61f824
 		summarizeBy: none
@@ -19,7 +20,8 @@ table BioGrow_Dim_Souches
 		annotation SummarizationSetBy = Automatic
 
 	column Temp_Optimale
-		dataType: string
+		dataType: double
+		formatString: 0.0\ "°C"
 		lineageTag: ea540bf8-f8ac-48bb-93da-b182af53554e
 		summarizeBy: none
 		sourceColumn: Temp_Optimale
@@ -35,7 +37,7 @@ table BioGrow_Dim_Souches
 			    "Bacillus S", 140,
 			    "Streptococcus T", 110,
 			    "Pediococcus A", 95,
-			    0 -- Valeur par défaut si aucune ne correspond
+			    BLANK() -- souche inconnue : pas de cible (lots classés « À vérifier »)
 			)
 		formatString: 0
 		lineageTag: 3f26ae94-df51-400f-a51f-4a4b31972c7f
@@ -43,20 +45,12 @@ table BioGrow_Dim_Souches
 
 		annotation SummarizationSetBy = Automatic
 
-	column Seuil_Qualite =
-			
-			SWITCH(
-			    'BioGrow_Dim_Souches'[Nom_Souche],
-			    "Lactobacillus B", 80,
-			    "Bifidobacterium X", 70,
-			    "Bacillus S", 100,
-			    "Streptococcus T", 75,
-			    "Pediococcus A", 60,
-			    0
-			)
+	column Seuil_Qualite
+		dataType: int64
 		formatString: 0
 		lineageTag: 1f9b6520-d453-4a75-a57b-02f3c21b0091
 		summarizeBy: none
+		sourceColumn: Seuil_Qualite
 
 		annotation SummarizationSetBy = Automatic
 
@@ -64,9 +58,9 @@ table BioGrow_Dim_Souches
 		mode: import
 		source =
 				let
-				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Dim_Souches.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Dim_Souches.csv"),[Delimiter=";", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"ID_Souche", Int64.Type}, {"Nom_Souche", type text}, {"Famille", type text}, {"Temp_Optimale", type text}}),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"ID_Souche", Int64.Type}, {"Nom_Souche", type text}, {"Famille", type text}, {"Temp_Optimale", type number}, {"Seuil_Qualite", Int64.Type}}, "en-US"),
 				    #"Colonne famille supprimée" = Table.RemoveColumns(#"Type modifié",{"Famille"})
 				in
 				    #"Colonne famille supprimée"
