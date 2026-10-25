@@ -13,11 +13,17 @@
             "solid": {
               "color": {
                 "expr": {
-                  "ThemeDataColor": {
-                    "ColorId": 4,
-                    "Percent": 0
+                  "Literal": {
+                    "Value": "'#F4F2ED'"
                   }
                 }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
               }
             }
           }
@@ -31,11 +37,17 @@
             "solid": {
               "color": {
                 "expr": {
-                  "ThemeDataColor": {
-                    "ColorId": 4,
-                    "Percent": 0
+                  "Literal": {
+                    "Value": "'#F4F2ED'"
                   }
                 }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
               }
             }
           }

@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Custom07830675797877729.json",
+      "name": "BioGrowTheme.json",
       "reportVersionAtImport": {
         "visual": "2.7.0",
         "report": "3.2.0",
@@ -65,8 +65,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Custom07830675797877729.json",
-          "path": "Custom07830675797877729.json",
+          "name": "BioGrowTheme.json",
+          "path": "BioGrowTheme.json",
           "type": "CustomTheme"
         },
         {
