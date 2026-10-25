@@ -50,6 +50,21 @@ table BioGrow_Dim_Calendrier
 
 		annotation SummarizationSetBy = Automatic
 
+	column Mois_Abrege = FORMAT('BioGrow_Dim_Calendrier'[Date], "mmm yy")
+		lineageTag: 39bd2355-9715-4c78-b972-c62eff296561
+		summarizeBy: none
+		sortByColumn: Mois_Tri
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mois_Tri = YEAR('BioGrow_Dim_Calendrier'[Date]) * 100 + MONTH('BioGrow_Dim_Calendrier'[Date])
+		formatString: 0
+		lineageTag: 05665191-7d38-4432-a3ce-05ebac9e3709
+		summarizeBy: none
+		isHidden
+
+		annotation SummarizationSetBy = Automatic
+
 	partition BioGrow_Dim_Calendrier = m
 		mode: import
 		source =
