@@ -6,10 +6,14 @@ table Mesures
 		lineageTag: f77440f9-03f6-4731-8448-e1367db8f7c0
 
 	measure 'Cout de production total' = SUM(BioGrow_Fait_Production[Coût_Production])
-		formatString: #,0.00,,\ "M€";-#,0.00,,\ "M€";#,0.00,,\ "M€"
+		formatString: #,0\ "€";-#,0\ "€";#,0\ "€"
 		lineageTag: c88b0de5-d165-449f-86b4-66ddf4df0c31
 
 		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	measure 'Coût de production (M€)' = DIVIDE([Cout de production total], 1000000)
+		formatString: #,0.00\ "M€"
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b14
 
 	measure 'Performance par souche en %' =
 			
@@ -29,24 +33,30 @@ table Mesures
 
 	measure 'Nombre de Lots invendables' =
 			
-			COALESCE(
-			    CALCULATE(
-			        COUNTROWS('BioGrow_Fait_Production'),
-			        'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendable"
-			    ),
-			    0
+			IF(
+			    ISEMPTY('BioGrow_Fait_Production'), BLANK(),
+			    COALESCE(
+			        CALCULATE(
+			            COUNTROWS('BioGrow_Fait_Production'),
+			            'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendable"
+			        ),
+			        0
+			    )
 			)
 		formatString: 0
 		lineageTag: a3fbff63-32a4-4f09-90be-103306c54316
 
 	measure 'Perte Financière (Invendables)' =
 			
-			COALESCE(
-			    CALCULATE(
-			        SUM('BioGrow_Fait_Production'[Coût_Production]),
-			        'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendable"
-			    ),
-			    0
+			IF(
+			    ISEMPTY('BioGrow_Fait_Production'), BLANK(),
+			    COALESCE(
+			        CALCULATE(
+			            SUM('BioGrow_Fait_Production'[Coût_Production]),
+			            'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendable"
+			        ),
+			        0
+			    )
 			)
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 25d5f991-5a51-4229-ad25-ac99953a230b

@@ -42,11 +42,11 @@
                       "Entity": "Mesures"
                     }
                   },
-                  "Property": "Cout de production total"
+                  "Property": "Coût de production (M€)"
                 }
               },
-              "queryRef": "Mesures.Cout de production total",
-              "nativeQueryRef": "Cout de production total",
+              "queryRef": "Mesures.Coût de production (M€)",
+              "nativeQueryRef": "Coût de production (M€)",
               "displayName": "Coût de production total"
             }
           ]
@@ -62,7 +62,7 @@
                     "Entity": "Mesures"
                   }
                 },
-                "Property": "Cout de production total"
+                "Property": "Coût de production (M€)"
               }
             },
             "direction": "Descending"
