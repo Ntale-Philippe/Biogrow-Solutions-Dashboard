@@ -3,6 +3,7 @@
 !/.gitignore
 !/README.md
 !/THIRD_PARTY_NOTICES.md
+!/docs/
 !/Biogrow dashboard.pbip
 !/Biogrow dashboard.Report/
 !/Biogrow dashboard.SemanticModel/

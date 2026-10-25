@@ -2,6 +2,10 @@
 
 Ce projet est un tableau de bord Power BI construit sur des données fictives. BioGrow Solutions est une entreprise imaginaire qui produit des souches bactériennes, et tous les chiffres ci-dessous sont simulés. Seule la démarche d'analyse est réelle.
 
+Le rapport interactif est consultable en ligne, sans compte Power BI : [ouvrir le rapport](https://app.powerbi.com/view?r=eyJrIjoiNDNhOTM2Y2ItZTY4OS00MzE3LThjZTctNzFhYzgzYzE3ODJlIiwidCI6IjFlODMyYTBmLTdiNWQtNGRmMC1hMjg5LWMyM2Y4YzU4MmIwYSJ9).
+
+[![Page d'accueil du rapport](docs/accueil.png)](https://app.powerbi.com/view?r=eyJrIjoiNDNhOTM2Y2ItZTY4OS00MzE3LThjZTctNzFhYzgzYzE3ODJlIiwidCI6IjFlODMyYTBmLTdiNWQtNGRmMC1hMjg5LWMyM2Y4YzU4MmIwYSJ9)
+
 #### Le problème
 
 Sur la période étudiée, un lot sur six est invendable : son rendement n'atteint pas le seuil de qualité fixé pour sa souche. Ces lots représentent 317 000 € de coûts de production perdus, sur un total de 1,99 million d'euros.
@@ -26,6 +30,13 @@ Le projet est enregistré au format PBIP, ce qui permet de le versionner avec Gi
 
 Le rapport compte cinq pages : un accueil, une page sur le rendement, une sur la qualité, une sur l'efficacité commerciale et une page de recommandations. Quatre filtres (souche, technicien, site et niveau d'expertise) restent actifs d'une page à l'autre.
 
+La page Rendement compare chaque souche à sa cible : une seule l'atteint.
+
+![Page Rendement](docs/rendement.png)
+
+La page Qualité suit le pH et la température de culture, comparée à la température optimale des souches.
+
+![Page Qualité](docs/qualite.png)
 
 Le constat principal est qu'une seule souche concentre l'essentiel des pertes. Bacillus S produit 59 % de lots invendables et représente à elle seule 72 % de la perte, soit 230 000 €. Toutes les autres souches réunies n'en ont que 5 %. Son rendement moyen, 98 UFC/ml, est même inférieur à son propre seuil de qualité, fixé à 100.
 
@@ -48,6 +59,10 @@ Pediococcus A mérite une plus grande place dans le catalogue : c'est la seule s
 Comme des lots invendables apparaissent chaque mois, un suivi de la qualité en temps réel, directement au laboratoire, permettrait de les repérer plus tôt.
 
 Enfin, l'accompagnement des techniciens devrait partir de leurs résultats individuels plutôt que de leur niveau d'expertise. Les niveaux intermédiaire et expert ne comptent chacun qu'un seul technicien, et les deux seniors obtiennent des résultats différents (14 et 18 % d'invendables) : les écarts tiennent davantage aux personnes qu'aux niveaux.
+
+Ces recommandations figurent aussi dans le rapport, chacune accompagnée d'un constat recalculé à chaque actualisation des données.
+
+![Page Recommandations](docs/recommandations.png)
 
 #### Ouvrir le projet
 
