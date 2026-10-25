@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "e2c5f1d7067aed0a5010",
   "position": {
-    "x": 217.17907069631207,
-    "y": 51.53401677539609,
-    "z": 4000,
-    "height": 153.37504992677407,
-    "width": 1036.8153375049926,
-    "tabOrder": 4000
+    "x": 104,
+    "y": 64,
+    "z": 1000,
+    "height": 64,
+    "width": 1160,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,12 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "RAPPORT DU SECTEUR DE PRODUCTION",
+                    "value": "Rapport du secteur de production",
                     "textStyle": {
-                      "fontWeight": "bold",
-                      "fontFamily": "Consolas",
-                      "fontSize": "44pt",
-                      "color": "#f2b05e"
+                      "fontSize": "30pt",
+                      "color": "#2F3E46",
+                      "fontFamily": "Segoe UI Semibold"
                     }
                   }
                 ],
@@ -37,6 +36,58 @@
     },
     "visualContainerObjects": {
       "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
         {
           "properties": {
             "show": {

@@ -70,11 +70,6 @@
           "type": "CustomTheme"
         },
         {
-          "name": "Gemini_Generated_Image_n1zylwn956977113254425.png",
-          "path": "Gemini_Generated_Image_n1zylwn956977113254425.png",
-          "type": "Image"
-        },
-        {
           "name": "nav_home.svg",
           "path": "nav_home.svg",
           "type": "Image"
@@ -127,6 +122,11 @@
         {
           "name": "logo_biogrow_embleme.png",
           "path": "logo_biogrow_embleme.png",
+          "type": "Image"
+        },
+        {
+          "name": "logo_biogrow.png",
+          "path": "logo_biogrow.png",
           "type": "Image"
         }
       ]
