@@ -2,12 +2,11 @@ table Mesures
 	lineageTag: ffdfecb6-4742-4cad-b706-9c0a3bd01c36
 
 	measure 'Rendemant moyen par lot' = average(BioGrow_Fait_Production[Rendement_UFC_ml])
+		formatString: #,0.00
 		lineageTag: f77440f9-03f6-4731-8448-e1367db8f7c0
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Cout de production total' = ROUND(sum(BioGrow_Fait_Production[Coût_Production]),3)
-		formatString: #,0.000\ "€";-#,0.000\ "€";#,0.000\ "€"
+		formatString: #,0.00,,\ "M€";-#,0.00,,\ "M€";#,0.00,,\ "M€"
 		lineageTag: c88b0de5-d165-449f-86b4-66ddf4df0c31
 
 		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
@@ -22,9 +21,8 @@ table Mesures
 			    )
 			)*100)
 			```
+		formatString: #,0.00\ "%"
 		lineageTag: a552f96e-7414-4a83-84f8-6609206e23a8
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Nombre de Lots invendables' =
 			
@@ -44,25 +42,22 @@ table Mesures
 			    SUM('BioGrow_Fait_Production'[Coût_Production]),
 			    'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendables"
 			)
-		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 25d5f991-5a51-4229-ad25-ac99953a230b
 
 		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
 
 	measure 'Écart-type Rendement' = STDEV.P('BioGrow_Fait_Production'[Rendement_UFC_ml])
+		formatString: #,0.00
 		lineageTag: 57649189-8816-4bc2-ad87-2e6df4efa224
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'ph moyen' = AVERAGE(BioGrow_Fait_Production[pH_Moyenne])
+		formatString: 0.00
 		lineageTag: 29e5011f-56df-4b76-8849-9237b0842e5b
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'temperature moyenne' = AVERAGE(BioGrow_Fait_Production[Temp_Moyenne])
+		formatString: 0.00\ "°C"
 		lineageTag: 68d51785-56df-4776-ad8b-c6efef0c2bb2
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Column
 		formatString: 0
