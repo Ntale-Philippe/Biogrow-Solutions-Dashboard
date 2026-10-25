@@ -1,0 +1,83 @@
+table Mesures
+	lineageTag: ffdfecb6-4742-4cad-b706-9c0a3bd01c36
+
+	measure 'Rendemant moyen par lot' = average(BioGrow_Fait_Production[Rendement_UFC_ml])
+		lineageTag: f77440f9-03f6-4731-8448-e1367db8f7c0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cout de production total' = ROUND(sum(BioGrow_Fait_Production[Coût_Production]),3)
+		formatString: #,0.000\ "€";-#,0.000\ "€";#,0.000\ "€"
+		lineageTag: c88b0de5-d165-449f-86b4-66ddf4df0c31
+
+		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	measure 'Performance par souche en %' = ```
+			
+			(AVERAGEX(
+			    'BioGrow_Fait_Production',
+			    DIVIDE(
+			        'BioGrow_Fait_Production'[Rendement_UFC_ml], 
+			        RELATED('BioGrow_Dim_Souches'[Rendement_Cible])
+			    )
+			)*100)
+			```
+		lineageTag: a552f96e-7414-4a83-84f8-6609206e23a8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Nombre de Lots invendables' =
+			
+			CALCULATE(
+			    COUNTROWS('BioGrow_Fait_Production'),
+			    FILTER(
+			        'BioGrow_Fait_Production',
+			        'BioGrow_Fait_Production'[Rendement_UFC_ml] < RELATED('BioGrow_Dim_Souches'[Seuil_Qualite])
+			    )
+			)
+		formatString: 0
+		lineageTag: a3fbff63-32a4-4f09-90be-103306c54316
+
+	measure 'Perte Financière (Invendables)' =
+			
+			CALCULATE(
+			    SUM('BioGrow_Fait_Production'[Coût_Production]),
+			    'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendables"
+			)
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 25d5f991-5a51-4229-ad25-ac99953a230b
+
+		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	measure 'Écart-type Rendement' = STDEV.P('BioGrow_Fait_Production'[Rendement_UFC_ml])
+		lineageTag: 57649189-8816-4bc2-ad87-2e6df4efa224
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ph moyen' = AVERAGE(BioGrow_Fait_Production[pH_Moyenne])
+		lineageTag: 29e5011f-56df-4b76-8849-9237b0842e5b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'temperature moyenne' = AVERAGE(BioGrow_Fait_Production[Temp_Moyenne])
+		lineageTag: 68d51785-56df-4776-ad8b-c6efef0c2bb2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Column
+		formatString: 0
+		lineageTag: aa8c40d8-50e1-4592-b353-002d0edeb2b7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Mesures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 8e3e0f8d868a4ee5812a1cfa06d6160a
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

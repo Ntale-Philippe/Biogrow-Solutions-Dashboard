@@ -1,0 +1,42 @@
+table BioGrow_Dim_Sites
+	lineageTag: dd0ba885-b6df-41a0-bf16-5a29b74cf3ad
+
+	column ID_Site
+		dataType: int64
+		formatString: 0
+		lineageTag: f0a3e93d-487e-4490-aa48-58950e1a666c
+		summarizeBy: none
+		sourceColumn: ID_Site
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nom_Site
+		dataType: string
+		lineageTag: aed185a2-43e4-45cb-afc0-b27383a53df4
+		summarizeBy: none
+		sourceColumn: Nom_Site
+
+		annotation SummarizationSetBy = Automatic
+
+	column Climat
+		dataType: string
+		lineageTag: a70e8d75-00d2-4840-994b-5893e6ac768f
+		summarizeBy: none
+		sourceColumn: Climat
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BioGrow_Dim_Sites = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Dim_Sites.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"ID_Site", Int64.Type}, {"Nom_Site", type text}, {"Climat", type text}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "2288967d0751c0827a70",
+  "position": {
+    "x": 455.28925842939287,
+    "y": 172.91040142537051,
+    "z": 0,
+    "height": 205.2533542099722,
+    "width": 766.27918905056288,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "BioGrow_Dim_Calendrier"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Date"
+                        }
+                      },
+                      "Hierarchy": "Hiérarchie de dates"
+                    }
+                  },
+                  "Level": "Mois"
+                }
+              },
+              "queryRef": "BioGrow_Dim_Calendrier.Date.Variation.Hiérarchie de dates.Mois",
+              "nativeQueryRef": "Date Mois",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Mesures"
+                    }
+                  },
+                  "Property": "Rendemant moyen par lot"
+                }
+              },
+              "queryRef": "Mesures.Rendemant moyen par lot",
+              "nativeQueryRef": "Rendemant moyen par lot"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

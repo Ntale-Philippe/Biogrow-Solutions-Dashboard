@@ -1,0 +1,26 @@
+relationship 42ff7ce0-c117-45c8-a29d-9dfe7cb7f34f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BioGrow_Dim_Calendrier.Date
+	toColumn: LocalDateTable_0a1def20-1ee9-4b9d-ad3c-a3a0f55d3b0a.Date
+
+relationship 8f8a3a36-c626-4950-95dc-9f480895e3e1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BioGrow_Dim_Calendrier.Mois
+	toColumn: LocalDateTable_22cebbaa-bd51-42cf-977c-a8bd7f948ddf.Date
+
+relationship 3af09967-db2c-f2dc-7b4c-2cd74a04cda3
+	fromColumn: BioGrow_Fait_Production.Date_Prod
+	toColumn: BioGrow_Dim_Calendrier.Date
+
+relationship 3a62031e-1ba4-b28f-efe6-7aa1004939e2
+	fromColumn: BioGrow_Fait_Production.ID_Souche
+	toColumn: BioGrow_Dim_Souches.ID_Souche
+
+relationship 0491933b-a0a9-863d-81f7-9ab0e37ad5da
+	fromColumn: BioGrow_Fait_Production.ID_Tech
+	toColumn: BioGrow_Dim_Techniciens.ID_Tech
+
+relationship 041502e8-2b33-f499-284c-de3a24e82e51
+	fromColumn: BioGrow_Fait_Production.ID_Site
+	toColumn: BioGrow_Dim_Sites.ID_Site
+

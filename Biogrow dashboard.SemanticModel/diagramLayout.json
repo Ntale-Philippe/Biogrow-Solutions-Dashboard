@@ -1,0 +1,99 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 399.20001220703125,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 3,
+            "y": 261
+          },
+          "nodeIndex": "BioGrow_Dim_Calendrier",
+          "nodeLineageTag": "af1fcc84-8d1f-4a7e-90a2-c9cee8cab4d5",
+          "size": {
+            "height": 196,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "BioGrow_Dim_Sites",
+          "nodeLineageTag": "dd0ba885-b6df-41a0-bf16-5a29b74cf3ad",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 791,
+            "y": 0
+          },
+          "nodeIndex": "BioGrow_Dim_Souches",
+          "nodeLineageTag": "ef1593b3-77d3-4b60-931b-5ee93b059fb5",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 815,
+            "y": 282
+          },
+          "nodeIndex": "BioGrow_Dim_Techniciens",
+          "nodeLineageTag": "03c18587-94ea-4899-adff-48539a6475d7",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 382,
+            "y": 98
+          },
+          "nodeIndex": "BioGrow_Fait_Production",
+          "nodeLineageTag": "ec80d821-7193-471b-9f53-61aebd98b4b3",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1099,
+            "y": 128.5
+          },
+          "nodeIndex": "Mesures",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Toutes les tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Toutes les tables",
+  "defaultDiagram": "Toutes les tables"
+}

@@ -1,0 +1,42 @@
+table BioGrow_Dim_Techniciens
+	lineageTag: 03c18587-94ea-4899-adff-48539a6475d7
+
+	column ID_Tech
+		dataType: int64
+		formatString: 0
+		lineageTag: d2fe89a5-2be4-442d-9b95-c2f89e3213b2
+		summarizeBy: none
+		sourceColumn: ID_Tech
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nom_Tech
+		dataType: string
+		lineageTag: 688a11e6-f207-4028-8f38-15e3d4967dd7
+		summarizeBy: none
+		sourceColumn: Nom_Tech
+
+		annotation SummarizationSetBy = Automatic
+
+	column Niveau_Expertise
+		dataType: string
+		lineageTag: f74ac683-6ad5-41c2-87a2-d16e672e1fae
+		summarizeBy: none
+		sourceColumn: Niveau_Expertise
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BioGrow_Dim_Techniciens = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Dim_Techniciens.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"ID_Tech", Int64.Type}, {"Nom_Tech", type text}, {"Niveau_Expertise", type text}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

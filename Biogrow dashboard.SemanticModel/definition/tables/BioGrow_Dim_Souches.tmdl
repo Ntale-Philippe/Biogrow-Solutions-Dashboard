@@ -1,0 +1,77 @@
+table BioGrow_Dim_Souches
+	lineageTag: ef1593b3-77d3-4b60-931b-5ee93b059fb5
+
+	column ID_Souche
+		dataType: int64
+		formatString: 0
+		lineageTag: 53fc59ba-578f-4a4c-bb26-4786dd61f824
+		summarizeBy: none
+		sourceColumn: ID_Souche
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nom_Souche
+		dataType: string
+		lineageTag: 5e08c1ca-9ada-47a7-98d2-8b1c64130d33
+		summarizeBy: none
+		sourceColumn: Nom_Souche
+
+		annotation SummarizationSetBy = Automatic
+
+	column Temp_Optimale
+		dataType: string
+		lineageTag: ea540bf8-f8ac-48bb-93da-b182af53554e
+		summarizeBy: none
+		sourceColumn: Temp_Optimale
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rendement_Cible =
+			
+			SWITCH(
+			    'BioGrow_Dim_Souches'[Nom_Souche],
+			    "Lactobacillus B", 120,
+			    "Bifidobacterium X", 100,
+			    "Bacillus S", 140,
+			    "Streptococcus T", 110,
+			    "Pediococcus A", 95,
+			    0 -- Valeur par défaut si aucune ne correspond
+			)
+		formatString: 0
+		lineageTag: 3f26ae94-df51-400f-a51f-4a4b31972c7f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Seuil_Qualite =
+			
+			SWITCH(
+			    'BioGrow_Dim_Souches'[Nom_Souche],
+			    "Lactobacillus B", 80,
+			    "Bifidobacterium X", 70,
+			    "Bacillus S", 100,
+			    "Streptococcus T", 75,
+			    "Pediococcus A", 60,
+			    0
+			)
+		formatString: 0
+		lineageTag: 1f9b6520-d453-4a75-a57b-02f3c21b0091
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BioGrow_Dim_Souches = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Dim_Souches.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"ID_Souche", Int64.Type}, {"Nom_Souche", type text}, {"Famille", type text}, {"Temp_Optimale", type text}}),
+				    #"Colonne famille supprimée" = Table.RemoveColumns(#"Type modifié",{"Famille"})
+				in
+				    #"Colonne famille supprimée"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

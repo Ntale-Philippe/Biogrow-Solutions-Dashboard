@@ -1,0 +1,138 @@
+table BioGrow_Fait_Production
+	lineageTag: ec80d821-7193-471b-9f53-61aebd98b4b3
+
+	column ID_Lot
+		dataType: string
+		lineageTag: a1777d76-9fea-4b4a-9133-88e927a45a64
+		summarizeBy: none
+		sourceColumn: ID_Lot
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Souche
+		dataType: string
+		lineageTag: 0090024b-9f17-456f-a0c3-158c0cbb8167
+		summarizeBy: none
+		sourceColumn: ID_Souche
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Site
+		dataType: string
+		lineageTag: fb039762-8892-4aad-93f5-617407244b7a
+		summarizeBy: none
+		sourceColumn: ID_Site
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_Tech
+		dataType: string
+		lineageTag: 2cfdb612-1142-4271-ad1e-a421fdcbd664
+		summarizeBy: none
+		sourceColumn: ID_Tech
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date_Prod
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d079e0dd-fb57-4390-a1be-a03398c23d1a
+		summarizeBy: none
+		sourceColumn: Date_Prod
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Temp_Moyenne
+		dataType: double
+		lineageTag: 533adc44-d3bd-4175-b6bc-1ad380c04be4
+		summarizeBy: sum
+		sourceColumn: Temp_Moyenne
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pH_Moyenne
+		dataType: double
+		lineageTag: 4a145b63-38c9-4169-a24b-08e737cc2630
+		summarizeBy: sum
+		sourceColumn: pH_Moyenne
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Coût_Production
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 9622f3eb-3749-454c-8cdd-a3106a4f9936
+		summarizeBy: sum
+		sourceColumn: Coût_Production
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
+
+	column Rendement_UFC_ml
+		dataType: int64
+		formatString: 0
+		lineageTag: a6fe0fb7-905f-466c-9610-1f038aa53625
+		summarizeBy: sum
+		sourceColumn: Rendement_UFC_ml
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categorie_Qualite = ```
+			
+			VAR Seuil = RELATED('BioGrow_Dim_Souches'[Seuil_Qualite])
+			VAR Rendement = 'BioGrow_Fait_Production'[Rendement_UFC_ml]
+			VAR pH = 'BioGrow_Fait_Production'[pH_Moyenne]
+			VAR Temp = 'BioGrow_Fait_Production'[Temp_Moyenne]
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    -- 1. INVENDABLE : Le rendement ne respecte pas le minimum biologique
+			    Rendement < Seuil, "Invendable",
+			
+			    -- 2. PREMIUM : Rendement OK + Conditions de culture parfaites
+			    Rendement >= Seuil && 
+			    (pH >= 6.5 && pH <= 7.5) && 
+			    (Temp >= 30 && Temp <= 37), "Premium",
+			
+			    -- 3. VENDABLE : Rendement OK mais conditions de culture stressantes (pH ou Temp hors zone idéale)
+			    Rendement >= Seuil && 
+			    ((pH < 6.5 || pH > 7.5) || (Temp < 30 || Temp > 37)), "Vendable",
+			
+			    -- 4. SÉCURITÉ : Au cas où une donnée serait manquante
+			    "À vérifier"
+			)
+			```
+		lineageTag: ecd6b062-fcd7-4f39-bc24-666dac4e063e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BioGrow_Fait_Production = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Fait_Production.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"temp moyenne remplacer .par," = Table.ReplaceValue(#"En-têtes promus",".",",",Replacer.ReplaceText,{"Temp_Moyenne"}),
+				    #"ph moyen remplacer .par," = Table.ReplaceValue(#"temp moyenne remplacer .par,",".",",",Replacer.ReplaceText,{"pH_Moyenne"}),
+				    #"cout production remplacer .par," = Table.ReplaceValue(#"ph moyen remplacer .par,",".",",",Replacer.ReplaceText,{"Coût_Production"}),
+				    #"cout production remplacer en decimal fixer" = Table.TransformColumnTypes(#"cout production remplacer .par,",{{"Coût_Production", Currency.Type}}),
+				    #"Rendemant remplacer .par," = Table.ReplaceValue(#"cout production remplacer en decimal fixer",".",",",Replacer.ReplaceText,{"Rendement_UFC_ml"}),
+				    #"Rendemant, temp, ph remplacer en decimal" = Table.TransformColumnTypes(#"Rendemant remplacer .par,",{{"Rendement_UFC_ml", type number}, {"Temp_Moyenne", type number}, {"pH_Moyenne", type number}, {"Date_Prod", type date}}),
+				    #"remdemant remplacer en nombre entier" = Table.TransformColumnTypes(#"Rendemant, temp, ph remplacer en decimal",{{"Rendement_UFC_ml", Int64.Type}}),
+				    #"tmp et ph arrondir à 1 chif après la virgule" = Table.TransformColumns(#"remdemant remplacer en nombre entier",{{"Temp_Moyenne", each Number.Round(_, 1), type number}, {"pH_Moyenne", each Number.Round(_, 1), type number}})
+				in
+				    #"tmp et ph arrondir à 1 chif après la virgule"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "c4dee40bac72d1c09149",
+  "position": {
+    "x": 740.1560348783845,
+    "y": 6.2197986124234,
+    "z": 8000,
+    "height": 138.07952919579947,
+    "width": 225.15670976972706,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "BioGrow_Dim_Souches"
+                        }
+                      },
+                      "Property": "Temp_Optimale"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(BioGrow_Dim_Souches.Temp_Optimale)",
+              "nativeQueryRef": "Temp_Optimale"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

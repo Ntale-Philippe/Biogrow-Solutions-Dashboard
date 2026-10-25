@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "47f35c5800bc772b4ce0",
+  "position": {
+    "x": 199.0335555975488,
+    "y": 400.55503064006695,
+    "z": 5000,
+    "height": 150.51912642064627,
+    "width": 211.47315282239558,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "BioGrow_Dim_Techniciens"
+                    }
+                  },
+                  "Property": "Niveau_Expertise"
+                }
+              },
+              "queryRef": "BioGrow_Dim_Techniciens.Niveau_Expertise",
+              "nativeQueryRef": "Niveau_Expertise",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basic'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

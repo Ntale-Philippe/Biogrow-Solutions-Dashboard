@@ -1,0 +1,26 @@
+model Model
+	culture: fr-FR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: fr-FR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["BioGrow_Fait_Production","BioGrow_Dim_Souches","BioGrow_Dim_Sites","BioGrow_Dim_Techniciens","BioGrow_Dim_Calendrier"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table BioGrow_Fait_Production
+ref table DateTableTemplate_02714bed-a533-4769-8aa1-30fd7ecc7539
+ref table BioGrow_Dim_Souches
+ref table BioGrow_Dim_Sites
+ref table BioGrow_Dim_Techniciens
+ref table BioGrow_Dim_Calendrier
+ref table LocalDateTable_0a1def20-1ee9-4b9d-ad3c-a3a0f55d3b0a
+ref table LocalDateTable_22cebbaa-bd51-42cf-977c-a8bd7f948ddf
+ref table Mesures
+
+ref cultureInfo fr-FR
+

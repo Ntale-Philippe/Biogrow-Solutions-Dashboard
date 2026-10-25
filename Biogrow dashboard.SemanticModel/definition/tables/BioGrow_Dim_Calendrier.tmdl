@@ -1,0 +1,66 @@
+table BioGrow_Dim_Calendrier
+	lineageTag: af1fcc84-8d1f-4a7e-90a2-c9cee8cab4d5
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 27bebc02-e1a6-443d-a9c3-3f594b8e8859
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 42ff7ce0-c117-45c8-a29d-9dfe7cb7f34f
+			defaultHierarchy: LocalDateTable_0a1def20-1ee9-4b9d-ad3c-a3a0f55d3b0a.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Mois
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cd3af9e1-22c1-4b5c-9dae-4e14458bf436
+		summarizeBy: none
+		sourceColumn: Mois
+
+		variation Variation
+			isDefault
+			relationship: 8f8a3a36-c626-4950-95dc-9f480895e3e1
+			defaultHierarchy: LocalDateTable_22cebbaa-bd51-42cf-977c-a8bd7f948ddf.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Trimestre
+		dataType: string
+		lineageTag: bff45bb3-d2fd-4c1e-88d6-769be6326b03
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column Année
+		dataType: int64
+		formatString: 0
+		lineageTag: 57efcc49-e098-426e-8ac8-aea7b14659f0
+		summarizeBy: sum
+		sourceColumn: Année
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BioGrow_Dim_Calendrier = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Dim_Calendrier.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"Date", type date}, {"Mois", type date}, {"Trimestre", type text}, {"Année", Int64.Type}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

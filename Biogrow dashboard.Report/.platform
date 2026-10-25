@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Biogrow dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1df65caa-6783-442a-960e-1ec9ae54d3d2"
+  }
+}

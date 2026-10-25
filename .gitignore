@@ -1,0 +1,8 @@
+# Suivi limité au projet BioGrow
+/*
+!/.gitignore
+!/Biogrow dashboard.pbip
+!/Biogrow dashboard.Report/
+!/Biogrow dashboard.SemanticModel/
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

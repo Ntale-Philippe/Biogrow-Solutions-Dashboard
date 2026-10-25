@@ -1,0 +1,55 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "e2c5f1d7067aed0a5010",
+  "position": {
+    "x": 217.17907069631207,
+    "y": 51.53401677539609,
+    "z": 4000,
+    "height": 153.37504992677407,
+    "width": 1036.8153375049926,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "RAPPORT DU SECTEUR DE PRODUCTION",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Consolas",
+                      "fontSize": "44pt",
+                      "color": "#f2b05e"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
