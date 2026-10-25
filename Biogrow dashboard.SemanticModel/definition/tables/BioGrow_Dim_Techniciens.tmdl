@@ -3,6 +3,7 @@ table BioGrow_Dim_Techniciens
 
 	column ID_Tech
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: d2fe89a5-2be4-442d-9b95-c2f89e3213b2
 		summarizeBy: none

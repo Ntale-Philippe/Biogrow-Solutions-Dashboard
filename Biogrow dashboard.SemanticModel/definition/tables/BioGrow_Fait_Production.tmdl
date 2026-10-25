@@ -10,7 +10,9 @@ table BioGrow_Fait_Production
 		annotation SummarizationSetBy = Automatic
 
 	column ID_Souche
-		dataType: string
+		dataType: int64
+		isHidden
+		formatString: 0
 		lineageTag: 0090024b-9f17-456f-a0c3-158c0cbb8167
 		summarizeBy: none
 		sourceColumn: ID_Souche
@@ -18,7 +20,9 @@ table BioGrow_Fait_Production
 		annotation SummarizationSetBy = Automatic
 
 	column ID_Site
-		dataType: string
+		dataType: int64
+		isHidden
+		formatString: 0
 		lineageTag: fb039762-8892-4aad-93f5-617407244b7a
 		summarizeBy: none
 		sourceColumn: ID_Site
@@ -26,7 +30,9 @@ table BioGrow_Fait_Production
 		annotation SummarizationSetBy = Automatic
 
 	column ID_Tech
-		dataType: string
+		dataType: int64
+		isHidden
+		formatString: 0
 		lineageTag: 2cfdb612-1142-4271-ad1e-a421fdcbd664
 		summarizeBy: none
 		sourceColumn: ID_Tech
@@ -47,20 +53,20 @@ table BioGrow_Fait_Production
 	column Temp_Moyenne
 		dataType: double
 		lineageTag: 533adc44-d3bd-4175-b6bc-1ad380c04be4
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Temp_Moyenne
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column pH_Moyenne
 		dataType: double
 		lineageTag: 4a145b63-38c9-4169-a24b-08e737cc2630
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: pH_Moyenne
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -79,10 +85,10 @@ table BioGrow_Fait_Production
 		dataType: int64
 		formatString: 0
 		lineageTag: a6fe0fb7-905f-466c-9610-1f038aa53625
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Rendement_UFC_ml
 
-		annotation SummarizationSetBy = Automatic
+		annotation SummarizationSetBy = User
 
 	column Categorie_Qualite = ```
 			
@@ -94,6 +100,9 @@ table BioGrow_Fait_Production
 			RETURN
 			SWITCH(
 			    TRUE(),
+			    -- 0. DONNÉE MANQUANTE : souche sans seuil ou lot sans rendement
+			    ISBLANK(Seuil) || ISBLANK(Rendement), "À vérifier",
+			
 			    -- 1. INVENDABLE : Le rendement ne respecte pas le minimum biologique
 			    Rendement < Seuil, "Invendable",
 			
@@ -128,9 +137,10 @@ table BioGrow_Fait_Production
 				    #"Rendemant remplacer .par," = Table.ReplaceValue(#"cout production remplacer en decimal fixer",".",",",Replacer.ReplaceText,{"Rendement_UFC_ml"}),
 				    #"Rendemant, temp, ph remplacer en decimal" = Table.TransformColumnTypes(#"Rendemant remplacer .par,",{{"Rendement_UFC_ml", type number}, {"Temp_Moyenne", type number}, {"pH_Moyenne", type number}, {"Date_Prod", type date}}),
 				    #"remdemant remplacer en nombre entier" = Table.TransformColumnTypes(#"Rendemant, temp, ph remplacer en decimal",{{"Rendement_UFC_ml", Int64.Type}}),
-				    #"tmp et ph arrondir à 1 chif après la virgule" = Table.TransformColumns(#"remdemant remplacer en nombre entier",{{"Temp_Moyenne", each Number.Round(_, 1), type number}, {"pH_Moyenne", each Number.Round(_, 1), type number}})
+				    #"tmp et ph arrondir à 1 chif après la virgule" = Table.TransformColumns(#"remdemant remplacer en nombre entier",{{"Temp_Moyenne", each Number.Round(_, 1), type number}, {"pH_Moyenne", each Number.Round(_, 1), type number}}),
+				    #"Clés en nombre entier" = Table.TransformColumnTypes(#"tmp et ph arrondir à 1 chif après la virgule",{{"ID_Souche", Int64.Type}, {"ID_Site", Int64.Type}, {"ID_Tech", Int64.Type}})
 				in
-				    #"tmp et ph arrondir à 1 chif après la virgule"
+				    #"Clés en nombre entier"
 
 	annotation PBI_NavigationStepName = Navigation
 

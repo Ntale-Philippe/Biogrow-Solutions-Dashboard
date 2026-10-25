@@ -3,6 +3,7 @@ table BioGrow_Dim_Sites
 
 	column ID_Site
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f0a3e93d-487e-4490-aa48-58950e1a666c
 		summarizeBy: none

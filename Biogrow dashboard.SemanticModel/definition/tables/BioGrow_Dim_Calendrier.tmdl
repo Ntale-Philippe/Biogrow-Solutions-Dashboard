@@ -45,8 +45,16 @@ table BioGrow_Dim_Calendrier
 		dataType: int64
 		formatString: 0
 		lineageTag: 57efcc49-e098-426e-8ac8-aea7b14659f0
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Année
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre_Annee
+		dataType: string
+		lineageTag: 78dde69d-a92b-4391-ac5a-6a95b384f146
+		summarizeBy: none
+		sourceColumn: Trimestre_Annee
 
 		annotation SummarizationSetBy = Automatic
 
@@ -71,9 +79,12 @@ table BioGrow_Dim_Calendrier
 				let
 				    Source = Csv.Document(File.Contents("C:\Users\Admin\Downloads\BioGrow_Dim_Calendrier.csv"),[Delimiter=",", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 				    #"En-têtes promus" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"Date", type date}, {"Mois", type date}, {"Trimestre", type text}, {"Année", Int64.Type}})
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"Date", type date}, {"Trimestre", type text}, {"Année", Int64.Type}}),
+				    #"Mois texte supprimé" = Table.RemoveColumns(#"Type modifié",{"Mois"}),
+				    #"Mois recalculé" = Table.AddColumn(#"Mois texte supprimé", "Mois", each Date.StartOfMonth([Date]), type date),
+				    #"Trimestre avec année" = Table.AddColumn(#"Mois recalculé", "Trimestre_Annee", each Text.From(Date.Year([Date])) & " " & [Trimestre], type text)
 				in
-				    #"Type modifié"
+				    #"Trimestre avec année"
 
 	annotation PBI_NavigationStepName = Navigation
 

@@ -5,7 +5,7 @@ table Mesures
 		formatString: #,0.00
 		lineageTag: f77440f9-03f6-4731-8448-e1367db8f7c0
 
-	measure 'Cout de production total' = ROUND(sum(BioGrow_Fait_Production[Coût_Production]),3)
+	measure 'Cout de production total' = SUM(BioGrow_Fait_Production[Coût_Production])
 		formatString: #,0.00,,\ "M€";-#,0.00,,\ "M€";#,0.00,,\ "M€"
 		lineageTag: c88b0de5-d165-449f-86b4-66ddf4df0c31
 
@@ -13,34 +13,41 @@ table Mesures
 
 	measure 'Performance par souche en %' = ```
 			
-			(AVERAGEX(
-			    'BioGrow_Fait_Production',
+			-- Atteinte de la cible : 100 % = cible atteinte, au-delà = cible dépassée
+			AVERAGEX(
+			    FILTER(
+			        'BioGrow_Fait_Production',
+			        RELATED('BioGrow_Dim_Souches'[Rendement_Cible]) > 0
+			    ),
 			    DIVIDE(
-			        'BioGrow_Fait_Production'[Rendement_UFC_ml], 
+			        'BioGrow_Fait_Production'[Rendement_UFC_ml],
 			        RELATED('BioGrow_Dim_Souches'[Rendement_Cible])
 			    )
-			)*100)
+			)
 			```
-		formatString: #,0.00\ "%"
+		formatString: 0.00\ %
 		lineageTag: a552f96e-7414-4a83-84f8-6609206e23a8
 
 	measure 'Nombre de Lots invendables' =
 			
-			CALCULATE(
-			    COUNTROWS('BioGrow_Fait_Production'),
-			    FILTER(
-			        'BioGrow_Fait_Production',
-			        'BioGrow_Fait_Production'[Rendement_UFC_ml] < RELATED('BioGrow_Dim_Souches'[Seuil_Qualite])
-			    )
+			COALESCE(
+			    CALCULATE(
+			        COUNTROWS('BioGrow_Fait_Production'),
+			        'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendable"
+			    ),
+			    0
 			)
 		formatString: 0
 		lineageTag: a3fbff63-32a4-4f09-90be-103306c54316
 
 	measure 'Perte Financière (Invendables)' =
 			
-			CALCULATE(
-			    SUM('BioGrow_Fait_Production'[Coût_Production]),
-			    'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendables"
+			COALESCE(
+			    CALCULATE(
+			        SUM('BioGrow_Fait_Production'[Coût_Production]),
+			        'BioGrow_Fait_Production'[Categorie_Qualite] = "Invendable"
+			    ),
+			    0
 			)
 		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
 		lineageTag: 25d5f991-5a51-4229-ad25-ac99953a230b
@@ -59,10 +66,94 @@ table Mesures
 		formatString: 0.00\ "°C"
 		lineageTag: 68d51785-56df-4776-ad8b-c6efef0c2bb2
 
+	measure 'Température optimale' = AVERAGEX('BioGrow_Fait_Production', RELATED('BioGrow_Dim_Souches'[Temp_Optimale]))
+		formatString: 0.00\ "°C"
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b01
+
+	measure 'Écart à la température optimale' = [temperature moyenne] - [Température optimale]
+		formatString: +0.00\ "°C";-0.00\ "°C";0.00\ "°C"
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b02
+
+	measure 'Coût moyen par lot' = AVERAGE('BioGrow_Fait_Production'[Coût_Production])
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b03
+
+	measure 'Taux de lots invendables' = DIVIDE([Nombre de Lots invendables], COUNTROWS('BioGrow_Fait_Production'))
+		formatString: 0.0\ %
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b04
+
+	measure 'Couleur performance' =
+
+			VAR p = [Performance par souche en %]
+			RETURN
+			    SWITCH(TRUE(), ISBLANK(p), BLANK(), p >= 1, "#3E9B6E", "#E76F51")
+		isHidden
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b05
+
+	measure 'Constat expertise' =
+
+			VAR t = TOPN(1, FILTER(VALUES('BioGrow_Dim_Techniciens'[Niveau_Expertise]), NOT ISBLANK([Coût moyen par lot])), [Coût moyen par lot], DESC)
+			RETURN
+			    IF(ISEMPTY(t), "Aucune donnée",
+			        "Constat actuel : niveau « " & CONCATENATEX(t, 'BioGrow_Dim_Techniciens'[Niveau_Expertise], ", ")
+			        & " », coût par lot le plus élevé (" & FORMAT(MAXX(t, [Coût moyen par lot]), "#,0") & " €)")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b06
+		displayFolder: Constats
+
+	measure 'Constat invendables' =
+
+			IF(COUNTROWS('BioGrow_Fait_Production') = 0, "Aucune donnée",
+			    "Constat actuel : " & FORMAT([Nombre de Lots invendables], "0") & " lots invendables ("
+			    & FORMAT([Taux de lots invendables], "0.0 %") & " de la production)")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b07
+		displayFolder: Constats
+
+	measure 'Constat souche faible' =
+
+			VAR t = TOPN(1, FILTER(VALUES('BioGrow_Dim_Souches'[Nom_Souche]), NOT ISBLANK([Performance par souche en %])), [Performance par souche en %], ASC)
+			RETURN
+			    IF(ISEMPTY(t), "Aucune donnée",
+			        "Constat actuel : " & CONCATENATEX(t, 'BioGrow_Dim_Souches'[Nom_Souche], ", ")
+			        & " est la moins performante (" & FORMAT(MAXX(t, [Performance par souche en %]), "0.0 %") & " de la cible)")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b08
+		displayFolder: Constats
+
+	measure 'Constat souche forte' =
+
+			VAR t = TOPN(1, FILTER(VALUES('BioGrow_Dim_Souches'[Nom_Souche]), NOT ISBLANK([Performance par souche en %])), [Performance par souche en %], DESC)
+			RETURN
+			    IF(ISEMPTY(t), "Aucune donnée",
+			        "Constat actuel : " & CONCATENATEX(t, 'BioGrow_Dim_Souches'[Nom_Souche], ", ")
+			        & " est la plus performante (" & FORMAT(MAXX(t, [Performance par souche en %]), "0.0 %") & " de la cible)")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b09
+		displayFolder: Constats
+
+	measure 'Constat site rendement' =
+
+			VAR t = TOPN(1, FILTER(VALUES('BioGrow_Dim_Sites'[Nom_Site]), NOT ISBLANK([Rendemant moyen par lot])), [Rendemant moyen par lot], ASC)
+			RETURN
+			    IF(ISEMPTY(t), "Aucune donnée",
+			        "Constat actuel : " & CONCATENATEX(t, 'BioGrow_Dim_Sites'[Nom_Site], ", ")
+			        & ", rendement moyen le plus faible (" & FORMAT(MAXX(t, [Rendemant moyen par lot]), "#,0.0") & " UFC/ml)")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b10
+		displayFolder: Constats
+
+	measure 'Constat site coûts' =
+
+			VAR t = TOPN(1, FILTER(VALUES('BioGrow_Dim_Sites'[Nom_Site]), NOT ISBLANK([Cout de production total])), [Cout de production total], DESC)
+			RETURN
+			    IF(ISEMPTY(t), "Aucune donnée",
+			        "Constat actuel : " & CONCATENATEX(t, 'BioGrow_Dim_Sites'[Nom_Site], ", ")
+			        & ", site le plus coûteux (" & FORMAT(MAXX(t, [Cout de production total]) / 1000000, "0.00") & " M€, "
+			        & FORMAT(CALCULATE([Nombre de Lots invendables], t), "0") & " lots invendables)")
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b11
+		displayFolder: Constats
+
 	column Column
+		isHidden
 		formatString: 0
 		lineageTag: aa8c40d8-50e1-4592-b353-002d0edeb2b7
-		summarizeBy: sum
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Column]
 
