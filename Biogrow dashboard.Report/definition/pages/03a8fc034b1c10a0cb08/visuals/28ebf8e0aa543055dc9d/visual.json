@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "28ebf8e0aa543055dc9d",
   "position": {
-    "x": 242.57214588451259,
-    "y": 514.99932510865744,
+    "x": 242.5721458845126,
+    "y": 514.9993251086574,
     "z": 9000,
     "height": 189.08187781767134,
     "width": 439.117782037092,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "La souche Pediococcus A est la meilleure en terme de performance.",
+                    "value": "La souche Pediococcus A est la meilleure en termes de performance.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il faudrait augmenter la part de marché de cette souche dans le catalogue de l'entreprise et reduire la production des souches instables comme Bacillus S.",
+                    "value": "Il faudrait augmenter la part de cette souche dans le catalogue de l'entreprise et réduire la production des souches instables comme Bacillus S.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",

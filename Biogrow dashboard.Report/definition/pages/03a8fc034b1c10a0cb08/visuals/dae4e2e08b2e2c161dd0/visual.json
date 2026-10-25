@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "dae4e2e08b2e2c161dd0",
   "position": {
-    "x": 728.96039737602246,
-    "y": 514.99932510865744,
+    "x": 728.9603973760225,
+    "y": 514.9993251086574,
     "z": 12000,
     "height": 189.08187781767134,
-    "width": 533.65872094592771,
+    "width": 533.6587209459277,
     "tabOrder": 12000
   },
   "visual": {
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Le labo de Kinshasa présente le plus grand cout de productions ainsi que le plus grand nombre de lots invendables. ",
+                    "value": "Le laboratoire de Kinshasa présente le coût de production le plus élevé ainsi que le plus grand nombre de lots invendables. Les erreurs sont restées constantes tout au long de l'année.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",
@@ -31,26 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Cela montre que les erreurs sont restées constantes tout au long de l'année. ",
-                    "textStyle": {
-                      "fontWeight": "bold",
-                      "fontSize": "14pt",
-                      "color": "#2d9d9d"
-                    }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": ""
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Il vaudrait mieux vérifier la qualité des matériels, des produits et des techniciens pendant la production pour identifier au plus vite les erreurs.",
+                    "value": "Il vaudrait mieux vérifier la qualité du matériel, des produits et du travail des techniciens pendant la production pour identifier au plus vite les erreurs.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",

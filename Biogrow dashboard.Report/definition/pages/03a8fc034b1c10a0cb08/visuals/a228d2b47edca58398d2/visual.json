@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "a228d2b47edca58398d2",
   "position": {
-    "x": 242.57214588451259,
-    "y": 286.11073617147639,
+    "x": 242.5721458845126,
+    "y": 286.1107361714764,
     "z": 8000,
     "height": 195.30167643009474,
     "width": 439.117782037092,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "La souche Bacillus S est la moins performante sur tous les sites. ",
+                    "value": "La souche Bacillus S est la moins performante sur tous les sites.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",
@@ -31,7 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Il faudrait revoir ou ajuster le processus de production, inspecter les matériels et les méthodes des techniciens.",
+                    "value": "Il faudrait revoir ou ajuster le processus de production, inspecter le matériel et les méthodes des techniciens.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",

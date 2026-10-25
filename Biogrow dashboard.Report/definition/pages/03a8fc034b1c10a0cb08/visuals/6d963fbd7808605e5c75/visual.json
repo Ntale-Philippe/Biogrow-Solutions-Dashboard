@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "6d963fbd7808605e5c75",
   "position": {
-    "x": 728.96039737602246,
-    "y": 87.077180573927592,
+    "x": 728.9603973760225,
+    "y": 87.07718057392759,
     "z": 10000,
     "height": 161.71476392300838,
-    "width": 533.65872094592771,
+    "width": 533.6587209459277,
     "tabOrder": 10000
   },
   "visual": {
@@ -31,14 +31,7 @@
               {
                 "textRuns": [
                   {
-                    "value": ""
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": "Il faudrait déployer ce dashboard sur des tablettes directement dans les laboratoires pour suivre la qualité des lots en temps réel.",
+                    "value": "Il faudrait déployer ce tableau de bord sur des tablettes, directement dans les laboratoires, pour suivre la qualité des lots en temps réel.",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",
