@@ -222,19 +222,7 @@ cultureInfo fr-FR
 			          "ConceptualProperty": "Cout de production total"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Coût de production total": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "mesures.perte_financière_invendables": {
 			      "Definition": {
@@ -436,6 +424,27 @@ cultureInfo fr-FR
 			      "Terms": [
 			        {
 			          "Mois": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "mesures.coût_de_production_m": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Mesures",
+			          "ConceptualProperty": "Coût de production (M€)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Coût de production total": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

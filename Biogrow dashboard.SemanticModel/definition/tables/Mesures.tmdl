@@ -11,10 +11,6 @@ table Mesures
 
 		annotation PBI_FormatHint = {"currencyCulture":"fr-FR"}
 
-	measure 'Coût de production (M€)' = DIVIDE([Cout de production total], 1000000)
-		formatString: #,0.00\ "M€"
-		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b14
-
 	measure 'Performance par souche en %' =
 			
 			-- Atteinte de la cible : 100 % = cible atteinte, au-delà = cible dépassée
@@ -183,6 +179,10 @@ table Mesures
 			        & " € par lot selon le site")
 		displayFolder: Constats
 		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b13
+
+	measure 'Coût de production (M€)' = DIVIDE([Cout de production total], 1000000)
+		formatString: #,0.00\ "M€"
+		lineageTag: 0b6f3c1e-7a42-4d55-9a0e-3c1d2f8e6b14
 
 	column Column
 		isHidden
