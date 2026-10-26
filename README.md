@@ -24,7 +24,7 @@ Le nettoyage s'est fait dans Power Query. J'ai converti les nombres avec le bon 
 
 Le modèle suit un schéma en étoile : une table des lots reliée aux souches, aux sites, aux techniciens et au calendrier. Les mesures sont écrites en DAX. Une règle classe chaque lot en quatre catégories. Il est invendable si son rendement est sous le seuil de sa souche. Il est premium si le pH est entre 6,5 et 7,5 et la température à moins de 2 °C de l'optimum de la souche. Il est vendable dans les autres cas. Il est à vérifier s'il lui manque une donnée.
 
-Le projet est enregistré au format PBIP, ce qui permet de le versionner avec Git. Les chiffres clés ont été recalculés à part en Python, directement sur les fichiers sources, pour vérifier les mesures du modèle.
+Le projet est enregistré au format PBIP, ce qui permet de le versionner avec Git. Les chiffres clés ont été recalculés à part en Python, directement sur les fichiers sources, pour vérifier les mesures du modèle. J'utilise Claude, un assistant IA, pour m'aider dans ces vérifications et pour améliorer le design de mes tableaux de bord.
 
 #### Le résultat
 
